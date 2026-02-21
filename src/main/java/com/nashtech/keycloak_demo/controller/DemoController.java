@@ -15,5 +15,10 @@ public class DemoController {
     public String admin() {
         return "Hello Admin";
     }
+
+    @GetMapping("/info")
+    public String info() {
+        return "This is the general info.";
+    }
 }
 

@@ -1,4 +1,4 @@
-package com.nashtech.keycloak_demo.controller.config;
+package com.nashtech.keycloak_demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,6 +26,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(
                         auth -> auth
+                                .requestMatchers("/info/**").authenticated()
                                 .requestMatchers("/admin/**").hasRole("admin")
                                 .requestMatchers("/user/**").hasAnyRole("user")
                                 .anyRequest().authenticated()
